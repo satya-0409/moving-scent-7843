@@ -46,7 +46,7 @@ export default function LoginPage() {
         <Stack align={'center'}>
           <Heading fontSize={'4xl'}>Sign in to your account</Heading>
           <Text fontSize={'lg'} color={'gray.600'}>
-            to enjoy all of our cool <Link color={'blue.400'}>features</Link> ✌️
+            to enjoy all of our cool <Link color={'blue.400'}>features</Link> 
           </Text>
         </Stack>
         <Box
@@ -55,13 +55,13 @@ export default function LoginPage() {
           boxShadow={'lg'}
           p={8}>
           <Stack spacing={4}>
-            <FormControl id="email">
+            <FormControl id="email" isRequired>
               <FormLabel>Email address</FormLabel>
-              <Input type="email" onChange={(e) => setDetail({...detail, "email" : e.target.value})}/>
+              <Input type="email" onChange={(e) => setDetail({...detail, "email" : e.target.value})} placeholder="Email Here"/>
             </FormControl>
-            <FormControl id="password">
+            <FormControl id="password" isRequired>
               <FormLabel>Password</FormLabel>
-              <Input type="password" onChange={(e) => setDetail({...detail, "password" : e.target.value})} />
+              <Input type="password" onChange={(e) => setDetail({...detail, "password" : e.target.value})} placeholder="Password Here" />
             </FormControl>
             <Stack spacing={10}>
               <Stack
@@ -69,10 +69,10 @@ export default function LoginPage() {
                 align={'start'}
                 justify={'space-between'}>
                 <Checkbox>Remember me</Checkbox>
-                <Link color={'blue.400'}>Forgot password?</Link>
+                
               </Stack>
               <Button
-                bg={'blue.400'}
+                bg={'red.400'}
                 color={'white'}
                 _hover={{
                   bg: 'blue.500',
@@ -82,7 +82,7 @@ export default function LoginPage() {
               </Button>
               <Stack pt={2}>
                   <Text align={'center'}>
-                  Don't have an account? <Link to="/register">Sign up</Link>
+                  Don't have an account? <Link to="/register" style={{"color":"teal" ,"fontSize":"20px" , "fontWeight":"bold"}}>Sign up</Link>
                   </Text>
               </Stack>
             </Stack>

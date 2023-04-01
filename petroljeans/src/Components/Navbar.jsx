@@ -16,33 +16,37 @@ export default function Navbar({handleSearch}) {
 
     return (
         <div>
-            <Flex bg="white" p="10px 20px" alignItems="center" justifyContent="space-between" pos="fixed" zIndex="1" w="100%">
+            <Flex bg="red" color={"white"} p="10px 20px" alignItems="center" justifyContent="space-between" pos="fixed" zIndex="1" w="100%">
                 <HStack gap="20px" fontWeight="bold" ml="20px">
-                    <Link to="/products">
-                        <Box>MAN</Box>
+                    <Link to="/menproducts">
+                        <Box>MEN</Box>
                     </Link>
-                    <Box>WOMAN</Box>
-                    <Box>KID</Box>
+                    <Link to="/womenproducts">
+                    <Box>WOMEN</Box>
+                    </Link>
+                    <Box>KIDS</Box>
                     <Box>SPORTS</Box>
                     <Box border="2px solid red" p="5px 15px" color="red" >SALE</Box>
                 </HStack>
                 <HStack>
                     <Link to="/">
-                        <Image src="" alt="Vogue_Fashion" w="40%"/>
+                        <Image src="https://i.ibb.co/xqVj6ZM/2.png"  alt="PetrolJaens" w="10%"/>
                     </Link>
                 </HStack>
                 <HStack gap="20px" mr="20px">
                     {!isauth ? 
                     <Link to="/register">
-                        <BiUser size="30px"/>
+                        <BiUser  size="30px"/>
                     </Link> : null}
                     {isauth ? <Text fontSize="lg" fontWeight="bold" textDecorationLine="underline">Welcome {name}</Text> : null}
                     <FiSearch size="30px" onClick={() => setSearch(true)}/>           
                     <Link to="/whishlist">
-                        <GrFavorite size="30px" />
+                        <GrFavorite size="30px"/>
                     </Link>   
-                    <HiOutlineShoppingBag size="30px" />  
-                    {isauth ? <Button colorScheme="red" onClick={handleLogout}>Logout</Button> : null}    
+                    <Link to="/addtocartpage">
+                    <HiOutlineShoppingBag size="30px" /> 
+                    </Link> 
+                    {isauth ? <Button colorScheme="teal" onClick={handleLogout}>Logout</Button> : null}    
                 </HStack>
             </Flex>
             <Box h="80px"/>

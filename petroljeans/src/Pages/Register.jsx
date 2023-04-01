@@ -33,7 +33,6 @@ export default function Register() {
       axios.post(`https://jittery-blue-nightgown.cyclic.app/users`, data)
       .then((res) => console.log(res))
       .catch((error) => console.log(error))
-      console.log(res.data)
       navigate("/login");
   };
   
@@ -43,14 +42,14 @@ export default function Register() {
       minH={'100vh'}
       align={'center'}
       justify={'center'}
-      bg={useColorModeValue('gray.50', 'gray.800')}>
+      bg={useColorModeValue('black.50', 'black.800')}>
       <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
         <Stack align={'center'}>
-          <Heading fontSize={'4xl'} textAlign={'center'}>
-            Register
+          <Heading fontSize={'5xl'} textAlign={'center'}>
+            Register Here
           </Heading>
-          <Text fontSize={'lg'} color={'gray.600'}>
-            to enjoy all of our cool features ✌️
+          <Text fontSize={'lg'} color={'black.600'}>
+            Enjoy all of our features 
           </Text>
         </Stack>
         <Box
@@ -63,24 +62,24 @@ export default function Register() {
               <Box>
                 <FormControl id="firstName" isRequired>
                   <FormLabel>First Name</FormLabel>
-                  <Input type="text" onChange={(e) => setData({...data, "first_name" : e.target.value})} />
+                  <Input type="text" onChange={(e) => setData({...data, "first_name" : e.target.value})} placeholder="First Name" />
                 </FormControl>
               </Box>
               <Box>
-                <FormControl id="lastName">
+                <FormControl id="lastName" isRequired>
                   <FormLabel>Last Name</FormLabel>
-                  <Input type="text" onChange={(e) => setData({...data, "last_name" : e.target.value})} />
+                  <Input type="text" onChange={(e) => setData({...data, "last_name" : e.target.value})} placeholder="Last Name"/>
                 </FormControl>
               </Box>
             </HStack>
             <FormControl id="email" isRequired>
               <FormLabel>Email address</FormLabel>
-              <Input type="email" onChange={(e) => setData({...data, "email" : e.target.value})} />
+              <Input type="email" onChange={(e) => setData({...data, "email" : e.target.value})} placeholder="Email Here"/>
             </FormControl>
             <FormControl id="password" isRequired>
               <FormLabel>Password</FormLabel>
               <InputGroup>
-                <Input type={showPassword ? 'text' : 'password'} onChange={(e) => setData({...data, "password" : e.target.value})} />
+                <Input type={showPassword ? 'text' : 'password'} onChange={(e) => setData({...data, "password" : e.target.value})} placeholder="Password here"/>
                 <InputRightElement h={'full'}>
                   <Button
                     variant={'ghost'}
@@ -96,7 +95,7 @@ export default function Register() {
               <Button
                 loadingText="Submitting"
                 size="lg"
-                bg={'blue.400'}
+                bg={'red.400'}
                 color={'white'}
                 _hover={{
                   bg: 'blue.600',
@@ -107,7 +106,7 @@ export default function Register() {
             </Stack>
             <Stack pt={6}>
               <Text align={'center'}>
-                Already a user? <Link to="/login">Login</Link>
+                Already a user? <Link to="/login" style={{"color":"teal" ,"fontSize":"20px" , "fontWeight":"bold"}}>Login</Link>
               </Text>
             </Stack>
           </Stack>
