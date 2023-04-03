@@ -7,7 +7,7 @@ export const AuthContext = createContext();
 export default function AuthContextProvider({children}) {
     const [isauth, setIsAuth] = useState(false);
     const [name, setName] = useState("");
-    const navigatate = useNavigate();
+    const navigate = useNavigate();
 
     const handleLogin = (value) => {
         setIsAuth(true);
@@ -17,7 +17,7 @@ export default function AuthContextProvider({children}) {
     const handleLogout = () => {
         setIsAuth(false);
         setName("");
-        navigatate("/");
+        navigate("/");
     };
 
     return (

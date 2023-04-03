@@ -1,4 +1,4 @@
-import { Box, Flex, Grid, Heading, Select, Text, Button, Spinner } from "@chakra-ui/react";
+import { Box, Flex, Grid, Heading, Select, Text, Button, Spinner , useBreakpointValue } from "@chakra-ui/react";
 import { useEffect } from "react";
 import { useState } from "react";
 import Footer from "../Components/Footer";
@@ -12,6 +12,8 @@ export default function WomenProducts() {
     const [search, setSearch] = useState("");
     const [loading, setLoading] = useState(true);
     const [order, setOrder] = useState(""); 
+    const gridColumns = useBreakpointValue({ base: "repeat(1, 85%)", md: "repeat(2, 50%)", lg: "repeat(3, 28%)" , xl: "repeat(4,22%)" });
+
 
     useEffect(() => {
         getData(page, search, order);
@@ -49,7 +51,7 @@ export default function WomenProducts() {
             {/* Heading & Sort */}
 
             <Box bg="#f9f9f9" p="20px" mb="20px">
-                <Heading size="2xl" mb="40px">MEN PRODUCTS</Heading>
+                <Heading size="2xl" mb="40px">WOMEN PRODUCTS</Heading>
                 <Flex justifyContent="end" pr="20px">
                     <Select placeholder="SORT BY" w="20%" bg="white" onChange={(e) => setOrder(e.target.value)}>
                         <option value="asc">Price Low to High</option>
@@ -58,12 +60,13 @@ export default function WomenProducts() {
                 </Flex>
             </Box>
 
+
             {/* Product display */}
 
-            <Grid templateColumns="repeat(4,22%)" gap="40px 30px" justifyContent="center" mb="40px" >
+            <Grid templateColumns={gridColumns} gap="40px 30px" justifyContent="center" mb="40px" >
                 {data.map((e) => <WomenProductsCard key={e.id} id={e.id} src={e.src} tag={e.tag} price={e.price} original={e.original} discount={e.discount} color={e.color} title={e.title} />)}
             </Grid>
-
+{/* WomenProductsCard */}
             {/* Pagination */}
 
             <Flex justifyContent="center" alignItems="center" gap="20px" mb="30px">

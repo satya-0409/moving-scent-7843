@@ -1,9 +1,10 @@
+import { Heading } from '@chakra-ui/react'
 import React from 'react'
 
 const AddToCartPage = () => {
   return (
     <div>
-      <h1>Added To Cart</h1>
+      <Heading>Cart Page is Here</Heading>
     </div>
   )
 }

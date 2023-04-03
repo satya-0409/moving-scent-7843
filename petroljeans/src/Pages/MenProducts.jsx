@@ -1,4 +1,4 @@
-import { Box, Flex, Grid, Heading, Select, Text, Button, Spinner } from "@chakra-ui/react";
+import { Box, Flex, Grid, Heading, Select, Text, Button, Spinner ,  useBreakpointValue  } from "@chakra-ui/react";
 import { useEffect } from "react";
 import { useState } from "react";
 import Footer from "../Components/Footer";
@@ -12,6 +12,8 @@ export default function MenProducts() {
     const [search, setSearch] = useState("");
     const [loading, setLoading] = useState(true);
     const [order, setOrder] = useState(""); 
+    const gridColumns = useBreakpointValue({ base: "repeat(1, 100%)", md: "repeat(2, 50%)", lg: "repeat(3, 28%)" , xl: "repeat(4,22%)" });
+
 
     useEffect(() => {
         getData(page, search, order);
@@ -47,7 +49,6 @@ export default function MenProducts() {
             <Navbar handleSearch={handleSearch}/>
 
             {/* Heading & Sort */}
-
             <Box bg="#f9f9f9" p="20px" mb="20px">
                 <Heading size="2xl" mb="40px">MEN PRODUCTS</Heading>
                 <Flex justifyContent="end" pr="20px">
@@ -60,10 +61,9 @@ export default function MenProducts() {
 
             {/* Product display */}
 
-            <Grid templateColumns="repeat(4,22%)" gap="40px 30px" justifyContent="center" mb="40px" >
+            <Grid templateColumns={gridColumns} gap="40px 30px" justifyContent="center" mb="40px" >
                 {data.map((e) => <MenProductsCard key={e.id} id={e.id} src={e.src} tag={e.tag} price={e.price} original={e.original} discount={e.discount} color={e.color} title={e.title} />)}
             </Grid>
-
             {/* Pagination */}
 
             <Flex justifyContent="center" alignItems="center" gap="20px" mb="30px">

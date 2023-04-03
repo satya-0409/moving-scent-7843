@@ -1,15 +1,18 @@
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
-import { Box, Button, Flex, Image, Stack, Grid, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Image, Stack, Grid, Text, useBreakpointValue } from "@chakra-ui/react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Link } from "react-router-dom";
 
 export default function Home() {
+    const gridColumns = useBreakpointValue({ base: "repeat(2,60%)", md: "repeat(3, 40%)", lg: "repeat(4, 28%)" , xl: "repeat(6,15%)" });
+    const Categorytemplete = useBreakpointValue({ base: "repeat(1,100%)" , lg: "repeat(2,45%)" });
+    const servicestemplete = useBreakpointValue({base:"repeat(2, 50%)" , md: "repeat(4, 22%)"})
     const imageUrl = [
         { "url": "https://diesel.gumlet.io/banner/167825364411.webp?compress=true&q=70" },
         { "url": "https://diesel.gumlet.io/banner/1678449643Website%20Banner%20&%20Ads_1-01.webp?compress=true&q=70"},
-        { "url": "https://diesel.gumlet.io/banner/1674122683Denims_1336x591.webp?compress=true&q=70"},
+        
     ]
 
     const OfferCard = [
@@ -65,7 +68,7 @@ export default function Home() {
 
             {/* Offer Section                     Offer Section */}
 
-            <Grid templateColumns="repeat(6,15%)" my="40px" justifyContent="space-around">
+            <Grid templateColumns={gridColumns} my="40px" justifyContent="space-around">
                 {OfferCard.map((e) => 
                 <Flex key={e.id} direction="column" >
                     <Box display="flex" justifyContent="center">
@@ -80,7 +83,7 @@ export default function Home() {
 
             {/* Category Section                      Category Section*/}
 
-            <Grid templateColumns="repeat(2,40%)" templateRows="2" justifyContent="center" gap="20px 30px" mb="20px">
+            <Grid templateColumns={Categorytemplete} templateRows="2" justifyContent="center" gap="20px 30px" mb="20px">
                 <Box pos="relative" display="flex" justifyContent="center" alignItems="center">
                     <Image w="full" h="full" src="https://diesel.gumlet.io/cms_images/1676638237SS23%20DROP2_LOOKBOOK%20&%20OPC%20SELL%20OUT%20CROPS_BIG%20D_16_9_300dpi_16-9_300DPI.webp?compress=true&q=70" alt="LOGOMANIA" />
                     <Text fontSize="xl" fontWeight="bold" color="white" pos="absolute">LOGOMANIA</Text>
@@ -103,7 +106,7 @@ export default function Home() {
             {/* Services */}
 
             <Stack  mb="40px" gap="10px">
-                <Grid  templateColumns="repeat(4,20%)" justifyContent="space-around">
+                <Grid  templateColumns={servicestemplete} justifyContent="space-around">
                     <Flex direction="column" justifyContent="center" alignItems="center" gap="10px" >
                         <Image src="https://diesel.gumlet.io/cms_images/1671614479icons-01.webp" alt="PERSONALISED STYLING" w="50%" />
                         <Text fontSize="lg" fontWeight="semibold">PERSONALISED STYLING</Text>
@@ -121,7 +124,7 @@ export default function Home() {
                         <Text fontSize="lg" fontWeight="semibold">FLEXIBLE & SECURE PAYMENTS</Text>
                     </Flex>
                 </Grid>
-                <Grid templateColumns="repeat(4,20%)" justifyContent="space-around">
+                <Grid templateColumns={servicestemplete} justifyContent="space-around">
                 <Flex direction="column" justifyContent="center" alignItems="center" gap="10px" >
                         <Image src="https://diesel.gumlet.io/cms_images/1671614575icons-05.webp" alt="LIFETIME SUPPORT" w="50%" />
                         <Text fontSize="lg" fontWeight="semibold">LIFETIME SUPPORT</Text>

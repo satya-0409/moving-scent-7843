@@ -2,7 +2,7 @@ import { Box, Button, Flex, HStack, Image, Input, Text } from "@chakra-ui/react"
 
 import { BiUser } from "react-icons/bi"
 import { FiSearch } from "react-icons/fi"
-import { GrFavorite } from "react-icons/gr"
+import { BsHeart } from "react-icons/bs"
 import { RxCross2 } from "react-icons/rx";
 import { HiOutlineShoppingBag } from "react-icons/hi"
 import { useState } from "react";
@@ -30,7 +30,7 @@ export default function Navbar({handleSearch}) {
                 </HStack>
                 <HStack>
                     <Link to="/">
-                        <Image src="https://i.ibb.co/xqVj6ZM/2.png"  alt="PetrolJaens" w="10%"/>
+                        <Image src="https://i.ibb.co/xqVj6ZM/2.png"  alt="PetrolJaens" w="10%" borderRadius={"10px"} />
                     </Link>
                 </HStack>
                 <HStack gap="20px" mr="20px">
@@ -40,8 +40,8 @@ export default function Navbar({handleSearch}) {
                     </Link> : null}
                     {isauth ? <Text fontSize="lg" fontWeight="bold" textDecorationLine="underline">Welcome {name}</Text> : null}
                     <FiSearch size="30px" onClick={() => setSearch(true)}/>           
-                    <Link to="/whishlist">
-                        <GrFavorite size="30px"/>
+                    <Link to="/whishlist" >
+                        <BsHeart  size="30px"/>
                     </Link>   
                     <Link to="/addtocartpage">
                     <HiOutlineShoppingBag size="30px" /> 
