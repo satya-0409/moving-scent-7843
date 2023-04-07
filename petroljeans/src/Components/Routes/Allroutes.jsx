@@ -5,20 +5,23 @@ import LoginPage from "../../Pages/LoginPage";
 import Register from "../../Pages/Register";
 import MenProducts from "../../Pages/MenProducts";
 import WomenProducts from "../../Pages/WomenProducts";
-import SingleProduct from "../../Pages/SingleProduct";
 import WhishList from "../../Pages/WhishList";
 import AddToCartPage from '../../Pages/AddToCartPage';
 import PaymentPage from '../../Pages/PaymentPage';
+import SingleWomenPage from '../../Pages/SingleWomenPage';
+import SingleMenProduct from '../../Pages/SingleMenProduct';
 
 const Allroutes = () => {
     return (
-        <Routes>
+        
+             <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/login' element={<LoginPage />} />
             <Route path='/register' element={<Register />} />
             <Route path='/menproducts' element={<MenProducts />} />
             <Route path='/womenproducts' element={<WomenProducts />} />
-            <Route path='/products/:id' element={<SingleProduct />} />
+            <Route path='/menproducts/:pro_id' element={<SingleMenProduct />} />
+            <Route path='/womenproducts/:id' element={<SingleWomenPage />} />
             <Route path='/whishlist' element={<WhishList />} />
             <Route path='/addtocartpage' element={<AddToCartPage />} />
             <Route path='/paymentpage' element={<PaymentPage/>}/>

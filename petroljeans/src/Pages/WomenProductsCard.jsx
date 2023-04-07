@@ -39,6 +39,7 @@ export default function WomenProductsCard({ id, tag, src, price, original, disco
                     <Text>{color}</Text>
                     <Text noOfLines="1">{title}</Text>
                 </Box>   
+                <Button _hover={{color:"white" , backgroundColor:"black"}} backgroundColor={"white"}><Link to={`/womenproducts/${id}`}>  View</Link></Button>
             </Flex>
         </div>
     )

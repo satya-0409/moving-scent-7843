@@ -1,6 +1,7 @@
-import { Box, Flex, Image, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Image, Text } from "@chakra-ui/react";
 import axios from "axios";
 import { GrFavorite } from "react-icons/gr";
+import { Link } from "react-router-dom";
 
 export default function MenProductsCard({ id, tag, src, price, original, discount, color, title }) {
     const handleWishlist = () => {
@@ -38,7 +39,8 @@ export default function MenProductsCard({ id, tag, src, price, original, discoun
                     </Flex>
                     <Text fontSize={{ base: "sm", md: "lg" }}>{color}</Text>
                     <Text noOfLines={{ base: "2", md: "1" }} fontSize={{ base: "sm", md: "lg" }}>{title}</Text>
-                </Box>   
+                </Box>
+                <Button _hover={{color:"white" , backgroundColor:"black"}}><Link to={`/menproducts/${id}`}>  View</Link></Button>   
             </Flex>
         </div>
     )
